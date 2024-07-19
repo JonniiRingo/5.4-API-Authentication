@@ -6,10 +6,10 @@ const port = 3000;
 const API_URL = "https://secrets-api.appbrewery.com";
 
 // TODO: Replace the values below with your own before running this file.
-const yourUsername = "OjBino";
+const yourUsername = "OjBingo";
 const yourPassword = "12345";
-const yourAPIKey = "8efe99c2-1ad3-4398-89c6-225df7d5d668";
-const yourBearerToken = "";
+const yourAPIKey = "27c11db3-1352-4261-9a41-b7dbc8bd26fb";
+const yourBearerToken = "8efe99c2-1ad3-4398-89c6-225df7d5d668";
 
 app.get("/", (req, res) => {
   res.render("index.ejs", { content: "API Response." });
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 app.get("/noAuth", async (req, res) => {
   try {
     const result = await axios.get(API_URL + "/random");
-    res.render("index.ejs", { content: JSON.stringify(result.data) });
+    res.render("index.ejs", { content:JSON.stringify(result.data) });
   } catch (error) {
     res.status(404).send(error.message);
   }
@@ -44,7 +44,7 @@ app.get("/apiKey", async (req, res) => {
       params: {
         score: 5,
         apiKey: yourAPIKey,
-      },
+      }, 
     });
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
